@@ -27,7 +27,7 @@ def get_parser(**parser_kwargs):
     parser.add_argument("--chop_size", type=int, default=512, choices=[512, 256, 64], help="Chopping forward.")
     parser.add_argument("--chop_stride", type=int, default=-1,help="Chopping stride.")
     parser.add_argument("--fp32", type=str2bool, const=True, default=False, nargs="?", help="disable amp")
-    parser.add_argument("--task", type=str, default="realsr", choices=['realsr', 'faceir'])
+    parser.add_argument("--task", type=str, default="realsr", choices=['brain','realsr', 'faceir'])
     args = parser.parse_args()
     return args
 
@@ -36,15 +36,19 @@ def get_configs(args):
     if not ckpt_dir.exists():
         ckpt_dir.mkdir()
 
-    if args.task == 'realsr':
+    if args.task == 'ixi_t1':
         if 'vqf8' in args.config_path:
             vqgan_path = 'weights/vq_f8.ckpt'
         else:
-            vqgan_path = ckpt_dir / f'autoencoder_vq_f4.pth'
+            vqgan_path = ckpt_dir / f'ixi_t1.pth'
         configs = OmegaConf.load(args.config_path)
         ckpt_path = args.ckpt_path
-    elif args.task == 'faceir':
-        vqgan_path = ckpt_dir / f'ffhq512_vq_f8_dim8_face.pth'
+    elif args.task == 'ixi_t2':
+        vqgan_path = ckpt_dir / f'ixi_t2.pth'
+        configs = OmegaConf.load(args.config_path)
+        ckpt_path = args.ckpt_path
+    elif args.task == 'brats21_flair':
+        vqgan_path = ckpt_dir / f'brats21_flair.pth'
         configs = OmegaConf.load(args.config_path)
         ckpt_path = args.ckpt_path
     else:

@@ -22,7 +22,7 @@ torchrun --standalone --nproc_per_node=8 --nnodes=1 main.py --cfg_path configs/b
 ## 🚀 Inference and Evaluation
 **Brain MRI Super-resolution**
 ```
-bash test_realsr.sh
+bash test_brainsr.sh
 ```
 
 ## ❤️ Acknowledgement

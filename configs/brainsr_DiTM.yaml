@@ -105,15 +105,16 @@ data:
   train:
     type: realesrgan
     params:
-      # dir_paths: ['/data/imagenet/train/']
-      txt_file_path: [
-                     'data_list/LSDIR_train.txt',
-                     'data_list/ffhq1024_roma_10k.txt',
-                     'data_list/Flickr2K.txt',
-                     'data_list/DIV2K.txt',
-                     'data_list/DIV8K.txt',
-                     'data_list/OST300.txt',
-                     ]
+
+      dir_paths: ['/data/brats21_flair/train/']
+#      txt_file_path: [
+#                     'data_list/LSDIR_train.txt',
+#                     'data_list/ffhq1024_roma_10k.txt',
+#                     'data_list/Flickr2K.txt',
+#                     'data_list/DIV2K.txt',
+#                     'data_list/DIV8K.txt',
+#                     'data_list/OST300.txt',
+#                     ]
       im_exts: ['JPEG', ]
       io_backend:
         type: disk

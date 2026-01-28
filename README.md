@@ -1,8 +1,5 @@
 <div align="center">
 <h2>Combining Transformer and Mamba Diffusion Structures for Super-Resolution of Brain MRI</h2>
-<div>
-    <a href='https://github.com/kunncheng'>Qiong Zhang* <sup>1</sup></a>&emsp;
-</div>
 </div>
 
 
